@@ -1,0 +1,22 @@
+count=$1
+letters=( {a..z} )
+
+if [ $count -gt 26 ]
+then
+	    echo "Error: count must be less than or equal to 26"
+	    exit 1
+fi
+
+for (( i=0; i<$count; i++ )); do
+	    mkdir "folder_${letters[$i]}"
+    done
+
+    echo -n "$count folders created: "
+    for (( i=0; i<$count; i++ )); do
+	        if [ $i -eq $((count-1)) ]; then
+			echo -n "folder_${letters[$i]}"
+		else
+			echo -n "folder_${letters[$i]},"
+		fi
+    done
+    echo
